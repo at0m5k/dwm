@@ -9,5 +9,5 @@ All patches were hand patched using various sources and diffed in a queue. This 
 **todo:**
 * Implement pango.
 * Clean up systray.
-* powerline_theme - add implicit color defs. for powerline glyphs + clean up code.
+* Clean up powerline_theme -> change colors?
 * Remove unused functions and dependencies.
