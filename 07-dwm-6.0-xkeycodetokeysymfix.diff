@@ -1,5 +1,5 @@
---- dwm.c.orig	2013-07-01 15:31:23.349701170 -0400
-+++ dwm.c	2013-07-01 15:32:39.609699697 -0400
+--- dwm.c.orig	2013-08-08 23:57:18.427010187 -0400
++++ dwm.c	2013-08-08 23:58:06.650345948 -0400
 @@ -33,6 +33,7 @@
  #include <X11/cursorfont.h>
  #include <X11/keysym.h>
@@ -8,7 +8,7 @@
  #include <X11/Xlib.h>
  #include <X11/Xproto.h>
  #include <X11/Xutil.h>
-@@ -1128,7 +1129,7 @@ keypress(XEvent *e) {
+@@ -1163,7 +1164,7 @@ keypress(XEvent *e) {
  	XKeyEvent *ev;
  
  	ev = &e->xkey;

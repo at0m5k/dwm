@@ -1,5 +1,5 @@
---- dwm.c.orig	2013-07-01 15:12:02.189722419 -0400
-+++ dwm.c	2013-07-01 15:21:15.669712092 -0400
+--- dwm.c.orig	2013-08-08 23:52:02.733655823 -0400
++++ dwm.c	2013-08-08 23:56:05.593672055 -0400
 @@ -243,6 +243,7 @@ static int textnw(const char *text, unsi
  static void tile(Monitor *);
  static void togglebar(const Arg *arg);
@@ -8,7 +8,7 @@
  static void toggletag(const Arg *arg);
  static void toggleview(const Arg *arg);
  static void unfocus(Client *c, Bool setfocus);
-@@ -301,6 +302,9 @@ static int gap;
+@@ -300,6 +301,9 @@ static Window root;
  /* configuration, allows nested code to access above variables */
  #include "config.h"
  
@@ -18,7 +18,7 @@
  /* compile-time check if all tags fit into an unsigned int bit array. */
  struct NumTags { char limitexceeded[LENGTH(tags) > 31 ? -1 : 1]; };
  
-@@ -1170,6 +1174,16 @@ manage(Window w, XWindowAttributes *wa)
+@@ -1205,6 +1209,16 @@ manage(Window w, XWindowAttributes *wa)
  	           && (c->x + (c->w / 2) < c->mon->wx + c->mon->ww)) ? bh : c->mon->my);
  	c->bw = borderpx;
  
@@ -35,7 +35,7 @@
  	wc.border_width = c->bw;
  	XConfigureWindow(dpy, w, CWBorderWidth, &wc);
  	XSetWindowBorder(dpy, w, dc.colors[0][ColBorder].pixel);
-@@ -1818,6 +1832,24 @@ togglefloating(const Arg *arg) {
+@@ -1822,6 +1836,24 @@ togglefloating(const Arg *arg) {
  }
  
  void

@@ -1,5 +1,5 @@
---- dwm.c.orig	2013-07-01 18:05:08.132864736 -0400
-+++ dwm.c	2013-07-01 20:29:24.109371300 -0400
+--- dwm.c.orig	2013-08-08 23:58:57.763684019 -0400
++++ dwm.c	2013-08-08 23:59:34.293686384 -0400
 @@ -30,6 +30,7 @@
  #include <unistd.h>
  #include <sys/types.h>
@@ -17,7 +17,7 @@
         ClkClientWin, ClkRootWin, ClkLast };             /* clicks */
  
  typedef union {
-@@ -519,7 +520,7 @@ buttonpress(XEvent *e) {
+@@ -547,7 +548,7 @@ buttonpress(XEvent *e) {
  		else if(ev->x > selmon->ww - TEXTW(stext))
  			click = ClkStatusText;
  		else
@@ -26,7 +26,7 @@
  	}
  	else if((c = wintoclient(ev->window))) {
  		focus(c);
-@@ -846,7 +847,9 @@ dirtomon(int dir) {
+@@ -874,7 +875,9 @@ dirtomon(int dir) {
  
  void
  drawbar(Monitor *m) {
@@ -37,7 +37,7 @@
  	unsigned int i, occ = 0, urg = 0;
  	XftColor *col;
  	Client *c;
-@@ -883,14 +886,14 @@ drawbar(Monitor *m) {
+@@ -911,14 +914,14 @@ drawbar(Monitor *m) {
  	else
  		dc.x = m->ww;
  	if((dc.w = dc.x - x) > bh) {
@@ -59,7 +59,7 @@
  	}
  	XCopyArea(dpy, dc.drawable, m->barwin, dc.gc, 0, 0, m->ww, bh, 0, 0);
  	XSync(dpy, False);
-@@ -1499,11 +1502,8 @@ propertynotify(XEvent *e) {
+@@ -1525,11 +1528,8 @@ propertynotify(XEvent *e) {
  			drawbars();
  			break;
  		}
@@ -72,7 +72,7 @@
  		if(ev->atom == netatom[NetWMWindowType])
  			updatewindowtype(c);
  	}
-@@ -2581,6 +2581,8 @@ main(int argc, char *argv[]) {
+@@ -2585,6 +2585,8 @@ main(int argc, char *argv[]) {
  		die("usage: dwm [-v]\n");
  	if(!setlocale(LC_CTYPE, "") || !XSupportsLocale())
  		fputs("warning: no locale support\n", stderr);
